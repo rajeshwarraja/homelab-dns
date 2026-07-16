@@ -1,0 +1,6 @@
+.git
+.gitignore
+target
+Cargo.lock
+*.md
+.github
