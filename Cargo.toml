@@ -5,6 +5,6 @@ edition = "2024"
 
 [dependencies]
 ureq           = { version = "2", default-features = false, features = ["tls", "json"] }
-rustls         = { version = "0.23" }
+rustls         = { version = "0.23", default-features = false, features = ["std", "ring"] }
 rustls-pemfile = "2"
 serde_json     = "1"

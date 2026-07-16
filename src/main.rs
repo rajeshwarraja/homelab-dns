@@ -20,6 +20,9 @@ use std::time::Duration;
 type DnsMap = Arc<RwLock<HashMap<String, IpAddr>>>;
 
 fn main() {
+    // Ensure rustls has a deterministic process-level crypto backend.
+    let _ = rustls::crypto::ring::default_provider().install_default();
+
     let bind = std::env::var("BIND_ADDR").unwrap_or_else(|_| "0.0.0.0".into());
     let port: u16 = std::env::var("DNS_PORT")
         .ok().and_then(|p| p.parse().ok()).unwrap_or(53);
